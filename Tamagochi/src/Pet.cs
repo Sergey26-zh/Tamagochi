@@ -1,11 +1,11 @@
 ﻿public class Pet
 {
     private object lockObject = new object();
-    private string name { get; set; }
-    private int healthPoints { get; set; }
-    private int hungerLvl { get; set; }
-    private int fatigueLvl { get; set; }
-    private bool isAlive = true;
+    public string name;
+    public int healthPoints;
+    public int hungerLvl;
+    public int fatigueLvl;
+    public bool isAlive = true;
 
     public Pet(string name)
     {
@@ -64,8 +64,6 @@
             lock (lockObject)
             {
                 hungerLvl++;
-                Console.WriteLine("Уровень голода увеличен до: " + hungerLvl);
-
                 if (hungerLvl >= 10 && healthPoints > 0) 
                 {
                     healthPoints--;
